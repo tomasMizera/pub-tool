@@ -40,6 +40,8 @@ class PubTool:
             QgsCoordinateReferenceSystem("EPSG:5514"),\
             QgsProject.instance())
         self.allowed_projections = ["EPSG:4326", "EPSG:5514"]
+
+        #Calculate distance
         self.distance_calculator = QgsDistanceArea()
         self.distance_calculator.setSourceCrs(QgsCoordinateReferenceSystem("EPSG:5514"))
 
@@ -49,7 +51,6 @@ class PubTool:
         del self.pj_transformer, self.allowed_projections, self.index_built
 
     def build_index(self):
-        # build index
         self.index = QgsSpatialIndex(self.iface.activeLayer().getFeatures())
         self.index_built = True
 
