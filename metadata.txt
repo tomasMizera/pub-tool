@@ -1,9 +1,9 @@
 [general]
-name=Minimal
-description=Minimal plugin
-about=About this minimal plugin
+name=pub-tool
+description=Find nearest pub on map
+about=About this pub tool plugin
 version=1.0
 qgisMinimumVersion=3.0
-author=Martin Dobias
-email=wonder.sk@gmail.com
-repository=URL to the code repository
+author=Tomas Mizera
+email=lutraa
+repository=github.com/tomasMizera/pub-tool
