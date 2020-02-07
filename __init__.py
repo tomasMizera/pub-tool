@@ -12,7 +12,8 @@
 from PyQt5.QtWidgets import QAction, QMessageBox
 from qgis.gui import QgsMapToolEmitPoint
 from qgis.core import QgsSpatialIndex, QgsFeatureRequest, \
-    QgsCoordinateTransform, QgsCoordinateReferenceSystem, QgsProject, Qgis, QgsPoint, QgsPointXY
+    QgsCoordinateTransform, QgsCoordinateReferenceSystem, \
+    QgsProject, Qgis, QgsPoint, QgsPointXY, QgsDistanceArea
 
 
 def classFactory(iface):
@@ -39,6 +40,8 @@ class PubTool:
             QgsCoordinateReferenceSystem("EPSG:5514"),\
             QgsProject.instance())
         self.allowed_projections = ["EPSG:4326", "EPSG:5514"]
+        self.distance_calculator = QgsDistanceArea()
+        self.distance_calculator.setSourceCrs(QgsCoordinateReferenceSystem("EPSG:5514"))
 
     def unload(self):
         self.iface.removeToolBarIcon(self.action)
